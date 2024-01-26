@@ -1,0 +1,24 @@
+<%- include('shared/header.ejs') -%>
+<section class="orderTable">
+<h1 class="order">Orders</h1>
+<table class="table1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Order Details</th>
+    </tr>
+    <!-- one row is added for each order -->
+    <% data.forEach(item => { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.email %></td>
+          <td><%= item.phone %></td>
+          <td><a href="<%= `/details/${item.name}` %>">View</a></td>
+        </tr>
+  
+      <% }) %>
+</table>
+</section>
+
+<%- include('shared/footer.ejs') -%>

@@ -1,0 +1,58 @@
+<%- include('shared/header.ejs') -%>
+<%- include('shared/nav.ejs') -%>
+
+<form class="my-form" name="myForm" method="post" action="/request" enctype="multipart/form-data">
+    <h3>*Return or Replacement will be processed only if received damaged or wrong book</h3>
+    <div class="name_div">
+     <label for="name">Name:</label>
+     <input type="text" name="name">
+    </div>
+    
+    <div class="phone_div">
+     <label for="phone">Phone:</label>
+     <input type="text" name="phone" placeholder="xxxxxxxxxx">
+    </div>
+    
+    <div class="email_div">
+     <label for="email">Email ID:</label>
+     <input type="text" name="email" placeholder="text@text.com">
+    </div>
+    
+    <div class="purchase_id_div">
+      <label for="purchase_id">Purchase ID</label>
+      <input type="text" name="purchase_id">
+    </div>
+
+    <div class="purchase_date_div">
+      <label for="purchase_date">Purchase Date</label>
+      <input type="date" name="purchase_date">
+    </div>
+
+    <div class="image_div">
+      <label for="bookImage">Book Image</label>
+      <input type="file" id="bookImage" name="bookImage">
+    </div>
+
+    <div class="request_div">
+      <label for="request_description">Describe your issue and reason for return/replacement request</label>
+      <input type="text" id="request_description" name="request_description">
+    </div>
+
+
+    <div class="button_div">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <!-- error container for displaying error messages -->
+  <div class="error-container">
+    <% if(typeof errors !== 'undefined') {
+      for(let error of errors) {
+        %>
+          <p><%= error.msg %> </p>
+        <%
+      }
+    } %>
+  </div>
+
+<%- include('shared/footer.ejs') -%>

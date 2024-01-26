@@ -1,0 +1,45 @@
+<%- include('shared/header.ejs') -%>
+
+ <% if (order) { %>
+   
+    <section>
+        <h1 class="order">Order Details</h1>
+        <h3>Customer Details</h3>
+        <!-- displaying customer details -->
+      <p><span>Name </span>: <%= order.name %></p>
+      <p><span>Email </span>: <%= order.email %></p>
+      <p><span>Phone Number</span>: <%= order.phone %></p>
+      <p><span>Address </span>: <%= order.address %></p>
+      <p><span>City </span>: <%= order.city %></p>
+      <p><span>Province </span>: <%= order.province %></p>
+      
+        <table class="table1">
+          <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Amount</th>
+          </tr>
+         <!-- for each selected product, one row is added with the corresponding data -->
+          <% order.purchased_products.forEach(function(each_product) { %>
+            <tr>
+                <td><%= each_product.product_name %></td>
+                <td><%= each_product.quantity %></td>
+                <td><%= each_product.price %></td>
+                <td><%= each_product.amount %></td>
+            </tr>
+        
+          <% }); %>
+        </table>
+        <table class="table2">
+            <tr><td>Total price</td><td><%= order.total_purchase %></td></tr>
+            <tr><td>Tax</td><td><%= order.tax %>%</td></tr>
+            <tr><td>Tax Amount</td><td><%= order.tax_amount.toFixed(2) %></td></tr>
+            <tr><td>Total price with tax</td><td><%= order.total_with_tax.toFixed(2) %></td></tr>
+        </table>
+    </section>
+
+    <% } else { %>
+    <p>order information not available.</p>
+    <% } %>
+<%- include('shared/footer.ejs') -%>

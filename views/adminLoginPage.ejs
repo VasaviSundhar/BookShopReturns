@@ -1,0 +1,27 @@
+<%- include('shared/header.ejs') -%>
+<%- include('shared/nav.ejs') -%>
+<main>
+	
+	<form action="loginprocess" method="POST" class="admin_form">
+        <h1>Login</h1>
+		<div>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" />
+		</div>
+		<div>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" />
+		</div>
+		<div>
+			<button type="submit">Submit</button>
+		</div>
+	</form>
+
+	<p>
+    <% if(typeof(error) != 'undefined'){ %> 
+      <%= error %> 
+    <%  } %>
+  </p>
+</main>
+
+<%- include('shared/footer.ejs') -%>
